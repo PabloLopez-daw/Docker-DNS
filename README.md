@@ -120,3 +120,10 @@ services:
 ``` bash
     docker exec -it dns-server bash
 ```
+
+## 12.Ahora hacemos las comprobaciones de la sintaxis de los codigos , debe de dar 'OK'
+``` bash
+    named-checkconf /etc/bind/named.conf.options
+    named-checkzone pablomoya.test /var/lib/bind/db.pablomoya.test
+    named-checkzone 1.168.192.in-addr.arpa /var/lib/bind/db.192.168.1
+```
