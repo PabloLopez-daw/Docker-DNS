@@ -114,3 +114,9 @@ services:
 
 
 ## 10.Levantamos el servidor con un up -d y comprovamos que se ha levantado
+
+
+## 11.Entramos en el contenedor para ejecutar los camandos para comprobar que va bien el DNS
+``` bash
+    docker exec -it dns-server bash
+```
