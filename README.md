@@ -127,3 +127,14 @@ services:
     named-checkzone pablomoya.test /var/lib/bind/db.pablomoya.test
     named-checkzone 1.168.192.in-addr.arpa /var/lib/bind/db.192.168.1
 ```
+
+## 13. Comprobamos los logs del docker en la terminal de windows
+``` bash
+    docker logs dns-server
+```
+
+## 14. Comprobacion de que el servidor DNS va correctamente 
+``` bash
+    nslookup debian.pablomoya.test 127.0.0.1
+```
+
