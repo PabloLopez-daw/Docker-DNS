@@ -50,7 +50,7 @@ Recuperacion DNS
     };
 ```
 
-## 5. Ahora haremos el archivo de la zona directa (db.pablomoya.test) y lo configuramos así
+## 5.Ahora haremos el archivo de la zona directa (db.pablomoya.test) y lo configuramos así
 ``` bash
     $TTL    86400
     @       IN      SOA     ns.pablomoya.test. admin.pablomoya.test. (
@@ -67,7 +67,7 @@ Recuperacion DNS
     www     IN      CNAME   debian
 ```
 
-## 5. Ahora haremos el archivo de la zona inversa (db.192.168.1) y lo configuramos así
+## 6.Ahora haremos el archivo de la zona inversa (db.192.168.1) y lo configuramos así
 ``` bash
     $TTL    86400
     @       IN      SOA     ns.pablomoya.test. admin.pablomoya.test. (
@@ -80,3 +80,26 @@ Recuperacion DNS
     @       IN      NS      ns.pablomoya.test.
     50      IN      PTR     debian.pablomoya.test.
 ``` 
+
+## 7.Creamos en la raiz del proyecto el docker-composer.yml y lo configuramos de la siguiente manera 
+``` bash
+version: '3.8'
+
+services:
+  bind9:
+    image: ubuntu/bind9:9.16-20.04_beta
+    container_name: dns-server
+    platform: linux/amd64 
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Madrid
+    ports:
+      - "5353:53/tcp"
+      - "5353:53/udp"
+    volumes:
+      - ./config/named.conf.options:/etc/bind/named.conf.options
+      - ./config/named.conf.local:/etc/bind/named.conf.local
+      - ./zones:/var/lib/bind
+    command: ["-g", "-4"] 
+    restart: unless-stopped
+```

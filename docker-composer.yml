@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  bind9:
+    image: ubuntu/bind9:9.16-20.04_beta
+    container_name: dns-server
+    platform: linux/amd64 
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Madrid
+    ports:
+      - "5353:53/tcp"
+      - "5353:53/udp"
+    volumes:
+      - ./config/named.conf.options:/etc/bind/named.conf.options
+      - ./config/named.conf.local:/etc/bind/named.conf.local
+      - ./zones:/var/lib/bind
+    command: ["-g", "-4"] 
+    restart: unless-stopped
