@@ -1,7 +1,37 @@
-# Docker-DNS
-Recuperacion DNS
+# 🐳 Docker DNS: Servidor BIND9 Local
 
+Este proyecto despliega un servidor DNS local utilizando **BIND9** en un contenedor **Docker**. El objetivo es simular un entorno de red con resolución de nombres propia, configurando una zona directa (`pablomoya.test`) y una zona inversa.
 
+---
+
+## 📋 Índice de Contenidos
+
+1. [Requisitos Previos](#-requisitos-previos)
+2. [Estructura del Proyecto](#-estructura-del-proyecto)
+3. [Configuración del Servidor DNS](#-configuración-del-servidor-dns)
+    - [Opciones Globales](#1-opciones-globales-namedconfoptions)
+    - [Definición de Zonas](#2-definición-de-zonas-namedconflocal)
+4. [Archivos de Zona](#-archivos-de-zona)
+    - [Zona Directa](#1-zona-directa)
+    - [Zona Inversa](#2-zona-inversa)
+5. [Despliegue con Docker](#-despliegue-con-docker)
+6. [Verificación y Pruebas](#-verificación-y-pruebas)
+
+---
+
+## 🛠 Requisitos Previos
+
+Para "instalar" y ejecutar este servidor DNS, no necesitas instalar BIND9 directamente en tu ordenador. Solo necesitas tener instalado el entorno de contenedores.
+
+### Lo que necesitas instalar:
+
+1.  **Docker Desktop** (si usas Windows o Mac) o **Docker Engine** (si usas Linux).
+    * *Windows/Mac:* Descárgalo desde [Docker Desktop](https://www.docker.com/products/docker-desktop).
+    * *Linux:* Ejecuta `sudo apt install docker.io` (en Debian/Ubuntu) o sigue la [guía oficial](https://docs.docker.com/engine/install/).
+2.  **Docker Compose**: Normalmente viene incluido con Docker Desktop.
+    * Para verificar si lo tienes, abre una terminal y escribe: `docker-compose --version`.
+
+---
 ## 1.Primero creamos Primero el git ignore y metemos los archivos temporales para ignorarlos 
 ``` bash
     echo ".DS_Store" > .gitignore
