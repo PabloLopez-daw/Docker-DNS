@@ -103,3 +103,13 @@ services:
     command: ["-g", "-4"] 
     restart: unless-stopped
 ```
+
+## 8.Levantamos el servidor con un up -d
+``` bash
+    docker-compose up -d
+```
+
+
+## 9.Me da un error por conflicto de puertos he cambiado 5353 por 5454
+
+
