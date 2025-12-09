@@ -113,3 +113,4 @@ services:
 ## 9.Me da un error por conflicto de puertos he cambiado 5353 por 5454
 
 
+## 10.Levantamos el servidor con un up -d
