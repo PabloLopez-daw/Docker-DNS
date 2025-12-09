@@ -1,0 +1,9 @@
+zone "pablomoya.test" {
+    type master;
+    file "/var/lib/bind/db.pablomoya.test";
+};
+
+zone "1.168.192.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/db.192.168.1";
+};  

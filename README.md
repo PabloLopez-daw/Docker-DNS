@@ -37,3 +37,15 @@ Recuperacion DNS
     };
 ```
 
+## 4.Creamos el archivo named.conf.local donde configuramos las zonas, dentro de config le añadimos el siguiente codigo
+``` bash
+    zone "pablomoya.test" {
+        type master;
+        file "/var/lib/bind/db.pablomoya.test";
+    };
+
+    zone "1.168.192.in-addr.arpa" {
+        type master;
+        file "/var/lib/bind/db.192.168.1";
+    };
+```
